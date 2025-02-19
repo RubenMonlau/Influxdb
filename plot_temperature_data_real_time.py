@@ -11,6 +11,7 @@ def get_temperature_data():
         org="rubenrod",
         bucket="rubenrod"
     )
+    
     client = connection.get_client()
     query_api = connection.get_query_api(client)
 
