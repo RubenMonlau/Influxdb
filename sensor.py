@@ -7,7 +7,7 @@ from connection_component import InfluxDBConnection
 def simulate_temperature_data():
     """Simula el envío de datos de temperatura cada 5 segundos."""
     connection = InfluxDBConnection(
-        url="http://192.168.105.110:8086",
+        url="http://10.0.2.15:8086",
         token="ejmO_FbDgQVx_OMFFLxO8cEjYpPzZx_QdMEy0VHpSSr3DC7idArwcj1CSvhqyBG_alzh72D8Xd7sGDEtjkBjsg==",
         org="jmh",
         bucket="jmh"

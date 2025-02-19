@@ -6,7 +6,7 @@ from connection_component import InfluxDBConnection
 async def send_temperature_data(websocket, path):
     """Envía datos de temperatura en tiempo real a los clientes conectados."""
     connection = InfluxDBConnection(
-        url="http://localhost:8086",
+        url="http://10.0.2.15:8086",
         token="ejmO_FbDgQVx_OMFFLxO8cEjYpPzZx_QdMEy0VHpSSr3DC7idArwcj1CSvhqyBG_alzh72D8Xd7sGDEtjkBjsg==",
         org="jmh",
         bucket="jmh"
