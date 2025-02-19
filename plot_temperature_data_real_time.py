@@ -6,10 +6,10 @@ from connection_component import InfluxDBConnection
 def get_temperature_data():
     """Recupera los datos de temperatura de los últimos 10 minutos."""
     connection = InfluxDBConnection(
-        url="http://10.0.2.15:8086",
-        token="ejmO_FbDgQVx_OMFFLxO8cEjYpPzZx_QdMEy0VHpSSr3DC7idArwcj1CSvhqyBG_alzh72D8Xd7sGDEtjkBjsg==",
-        org="jmh",
-        bucket="jmh"
+        url="http://172.17.0.2:8086",
+        token="J_BBTcBVzZGhw9t7eCpDB8qLR8Md_ZDmor1MAwYsFLIYhi6wo6e41QWF1zjQzRFesV2HNESYowUOW9GckJcxDg==",
+        org="rubenrod",
+        bucket="rubenrod"
     )
     client = connection.get_client()
     query_api = connection.get_query_api(client)

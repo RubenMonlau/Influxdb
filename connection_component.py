@@ -20,10 +20,10 @@ class InfluxDBConnection:
         return client.query_api()
 
 # Configuración de conexión
-url = "http://192.168.105.110:8086"  # Reemplaza si el puerto es distinto
-token = "ejmO_FbDgQVx_OMFFLxO8cEjYpPzZx_QdMEy0VHpSSr3DC7idArwcj1CSvhqyBG_alzh72D8Xd7sGDEtjkBjsg=="
-org = "jmh"
-bucket = "jmh"
+url="http://172.17.0.2:8086",
+token="J_BBTcBVzZGhw9t7eCpDB8qLR8Md_ZDmor1MAwYsFLIYhi6wo6e41QWF1zjQzRFesV2HNESYowUOW9GckJcxDg==",
+org="rubenrod",
+bucket="rubenrod"
 
 # Ejemplo de uso:
 if __name__ == "__main__":
