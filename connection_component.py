@@ -20,9 +20,9 @@ class InfluxDBConnection:
         return client.query_api()
 
 # Configuración de conexión
-url="http://172.17.0.2:8086",
-token="J_BBTcBVzZGhw9t7eCpDB8qLR8Md_ZDmor1MAwYsFLIYhi6wo6e41QWF1zjQzRFesV2HNESYowUOW9GckJcxDg==",
-org="rubenrod",
+url="http://172.17.0.2:8086"
+token="J_BBTcBVzZGhw9t7eCpDB8qLR8Md_ZDmor1MAwYsFLIYhi6wo6e41QWF1zjQzRFesV2HNESYowUOW9GckJcxDg=="
+org="rubenrod"
 bucket="rubenrod"
 
 # Ejemplo de uso:

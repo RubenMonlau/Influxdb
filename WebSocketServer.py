@@ -2,11 +2,15 @@ import asyncio
 import websockets
 import pandas as pd
 from connection_component import InfluxDBConnection
+import warnings
+from influxdb_client.client.warnings import MissingPivotFunction
+
+warnings.simplefilter("ignore", MissingPivotFunction)
 
 async def send_temperature_data(websocket, path):
     """Envía datos de temperatura en tiempo real a los clientes conectados."""
     connection = InfluxDBConnection(
-        url="http://172.17.0.2:8086",
+        url="http://localhost:8086",
         token="J_BBTcBVzZGhw9t7eCpDB8qLR8Md_ZDmor1MAwYsFLIYhi6wo6e41QWF1zjQzRFesV2HNESYowUOW9GckJcxDg==",
         org="rubenrod",
         bucket="rubenrod"
@@ -26,7 +30,7 @@ async def send_temperature_data(websocket, path):
                 |> filter(fn: (r) => r._measurement == "thermometer" and r._field == "temperature")
             '''
             tables = query_api.query_data_frame(query)
-            
+
             # Procesar nuevos datos
             if not tables.empty:
                 df = tables[['_time', '_value']].rename(columns={"_time": "Time", "_value": "Temperature"})
@@ -38,7 +42,7 @@ async def send_temperature_data(websocket, path):
                     # Enviar datos nuevos a través del WebSocket
                     for _, row in new_data.iterrows():
                         await websocket.send(f"Tiempo: {row['Time']}, Temperatura: {row['Temperature']}°C")
-            
+
             await asyncio.sleep(5)  # Pausa entre consultas
     except websockets.exceptions.ConnectionClosed:
         print("Conexión cerrada con el cliente.")
